@@ -120,7 +120,7 @@ void scatter(__global const int * restrict input, __global const int * restrict 
     const int offset = group_id * local_size;
     const int local_id = get_local_id(0);
     const int pos = offset + local_id;
-    if(addresses[pos] != addresses[pos - 1]) {
+    if(temp[pos] == 1) {
         output[addresses[pos]] = input[pos];
     }
 }
